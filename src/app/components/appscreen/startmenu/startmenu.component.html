@@ -1,0 +1,12 @@
+<div class="menu container">
+    <img src="assets/mz-logo.png"/>
+    <h1>What you are feeling right now?</h1>
+    <div class="selections list-group-">
+        <div class="selection list-group-item list-group-item-action" *ngFor="let selection of selections" (click)="selectionClicked(selection)">
+            <div>{{ selection.emoji }}&nbsp;&nbsp;{{ selection.feel }}</div>
+        </div>
+    </div>
+    <div class="reload">
+        <a href="#" (click)="refreshSelections()"> 🤷‍ I am feeling crazy</a>
+    </div>
+</div>

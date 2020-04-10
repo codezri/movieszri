@@ -1,0 +1,9 @@
+<app-startmenu *ngIf="state == 'menu'" (menuClicked)="menuClicked($event)"></app-startmenu>
+<app-movieresult *ngIf="state == 'result'" [movie]="movie" (reloadClicked)="reloadClicked()"></app-movieresult>
+<div class="footer">
+    Version {{ version }}  &copy; {{ year }} &middot; 
+        <a href="https://www.github.com/codezri/movieszri"><i class="fa fa-github"></i> Source code</a>
+</div>
+<div *ngIf="state == 'loading'" class="loading">
+    <img src="assets/mz-logo.png">
+</div>
