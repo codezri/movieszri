@@ -13,7 +13,7 @@ export class AppscreenComponent implements OnInit {
   selection: any;
   @Output() movie: any;
   year = new Date().getFullYear();
-  version = '0.1';
+  version = '1.0';
 
   constructor(private movieService: MovieService) { }
 
