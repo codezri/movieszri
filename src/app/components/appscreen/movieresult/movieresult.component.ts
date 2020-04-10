@@ -27,6 +27,10 @@ export class MovieresultComponent implements OnInit {
     window.open(`https://www.google.com/search?q=${this.movie.title} ${this.movie.year}`);
   }
 
+  openTrailer() {
+    window.open(`https://www.youtube.com/watch?v=${this.movie.trailer}`);
+  }
+
   refreshMovie() {
     this.reloadClicked.emit();
   }

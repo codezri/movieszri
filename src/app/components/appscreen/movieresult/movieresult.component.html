@@ -12,8 +12,9 @@
                 <a href="#" (click)="refreshMovie()"> 🤷‍ Already watched</a>
             </div>
             <div>
-                <button class="btn btn-danger" (click)="googleSearch()" style="margin-right: 6px;">Google it</button>
-                <button class="btn btn-warning" (click)="goBack()">Go back to menu</button>
+                <button *ngIf="!!movie.trailer" class="btn btn-danger" (click)="openTrailer()" style="margin-right: 6px">Trailer</button>
+                <button class="btn btn-danger" (click)="googleSearch()" style="margin-right: 6px">Google</button>
+                <button class="btn btn-warning" (click)="goBack()">Go back</button>
             </div>
         </div>
     </div>

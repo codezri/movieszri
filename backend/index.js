@@ -9,6 +9,7 @@ let handler = async (event) => {
     let movies = await fetchMovies(genres);
     if(movies.length > 0) {
         body = movies[rand(0, movies.length - 1)];
+        body.trailer = await fetchTrailer(body.id);
     }
     const response = {
         statusCode: 200,
@@ -39,6 +40,23 @@ let fetchMovies = async (genres) => {
     return response.results;
 }
 
+let fetchTrailer = async(movieId) => {
+    let response = '';
+    let url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`;
+    try {
+        let videos = await request({
+            url: url,
+            json: true
+        });
+        if(videos.results.length > 0 && videos.results[0].site == 'YouTube' && videos.results[0].type == 'Trailer')
+            response = videos.results[0].key;
+    }
+    catch(error) {
+        console.error(error);
+    }
+    return response;
+}
+
 let rand = (min, max) => { 
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -47,6 +65,9 @@ exports.handler = handler;
 
 // (async () => {
 //     console.log(await handler({
+//         requestContext: {
+//             http: { method: "POST" }
+//         },
 //         body: '{"genres": "14"}'
 //     }));
 //   })();
