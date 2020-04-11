@@ -9,7 +9,7 @@
         <div class="details">
             <h1>{{movie.title}} ({{movie.year}})</h1>
             <div class="reload">
-                <a href="#" (click)="refreshMovie()"> 🤷‍ Already watched</a>
+                <a href="#" (click)="refreshMovie()"> 🤷‍ Nah not this</a>
             </div>
             <div>
                 <button *ngIf="!!movie.trailer" class="btn btn-danger" (click)="openTrailer()" style="margin-right: 6px">Trailer</button>
