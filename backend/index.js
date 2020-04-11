@@ -26,7 +26,7 @@ let handler = async (event) => {
 
 let fetchMovies = async (genres) => {
     let response = [];
-    let page = rand(1, 10);
+    let page = rand(1, 100);
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genres}&page=${page}`;
     try {
         response = await request({
